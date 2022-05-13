@@ -4,11 +4,12 @@ import {createEvent, createStore} from "effector";
 const increment = createEvent();
 const increment2=createEvent();
 const reset=createEvent();
-const $counter = createStore(0)
+export const $counter = createStore(0)
     .on(increment, state => state + 1)
     .reset(reset);
 const $count2 = createStore(0)
     .on(increment2, state => state + 1);
+
 
 export const Counter = () => {
     const state = useStore($counter);

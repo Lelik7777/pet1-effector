@@ -2,6 +2,7 @@ import './App.css';
 import {createEvent, createStore} from "effector";
 import {useStore} from "effector-react";
 import {Counter, Counter2} from "./Counter";
+import {MyInput} from "./MyInput";
 
 const onChange = createEvent();
 const onSubmit = createEvent();
@@ -15,6 +16,7 @@ function App() {
     return (
         <div className="App">
             <div className='container'>
+                <MyInput/>
                 <Counter/>
                 <Counter2/>
             </div>
