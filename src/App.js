@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import {createEvent, createStore} from "effector";
+import {useStore} from "effector-react";
+const onChange=createEvent();
+const onSubmit=createEvent();
+const $input=createStore('hello').on(onChange,(state,value)=>value)
+const $store=createStore([]).on(onSubmit,(state,value)=>state.push(value));
 
 function App() {
+    const input=useStore($input)
+   // $store.watch(x=>console.log(x));
+    console.log($input)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <div className='container'>
+               <input type="text"  value={input} onChange={(x)=>onChange(x.target.value)}/>
+       </div>
     </div>
   );
 }
