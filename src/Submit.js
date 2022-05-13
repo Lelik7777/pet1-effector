@@ -36,16 +36,16 @@ onSubmit.watch(e => {
     e.preventDefault()
 })
 
- export const App1 = () => (
-     <div>
-         <form onSubmit={onSubmit}>
-             Login: <input name="name"/>
-             <br/>
-             Password: <input name="password" type="password"/>
-             <br/>
-             <Loader/>
-             <SubmitButton/>
-         </form>
-     </div>
+export const App1 = () => (
+    <div>
+        <form onSubmit={onSubmit}>
+            Login: <input name="name"/>
+            <br/>
+            Password: <input name="password" type="password"/>
+            <br/>
+            <Loader/>
+            <SubmitButton/>
+        </form>
+    </div>
 )
 
