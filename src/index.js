@@ -8,7 +8,7 @@ import {App1} from "./Submit";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App1 />
+    <App />
   </React.StrictMode>
 );
 

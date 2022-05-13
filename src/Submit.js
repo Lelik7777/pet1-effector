@@ -2,6 +2,7 @@ import React from 'react'
 import {createEffect} from 'effector'
 import {createComponent, useStore} from 'effector-react'
 import {logDOM} from "@testing-library/react";
+import {Counter} from "./Counter";
 
 //defining simple Effect, which results a string in 3 seconds
 
@@ -38,13 +39,15 @@ onSubmit.watch(e => {
 })
 
  export const App1 = () => (
-    <form onSubmit={onSubmit}>
-        Login: <input name="name" />
-        <br />
-        Password: <input name="password" type="password" />
-        <br />
-        <Loader />
-        <SubmitButton />
-    </form>
+     <div>
+         <form onSubmit={onSubmit}>
+             Login: <input name="name"/>
+             <br/>
+             Password: <input name="password" type="password"/>
+             <br/>
+             <Loader/>
+             <SubmitButton/>
+         </form>
+     </div>
 )
 
