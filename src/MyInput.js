@@ -9,10 +9,10 @@ const resetInput = createEvent();
 const onChange = createEvent();
 const onChange2=createEvent();
 const $input = createStore(0)
-    .on(onChange, state => state + 1)
+    .on(onChange, (state,num) => num)
     .reset(resetInput);
 const $input2=createStore(0)
-    .on(onChange2,state=>state+1);
+    .on(onChange2,(state,num)=>num);
 sample({
     clock: setCounter,
     source: $input,
