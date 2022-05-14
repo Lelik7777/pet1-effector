@@ -1,12 +1,10 @@
 import {createComponent, useStore} from "effector-react";
 import {createEvent, createStore, sample} from "effector";
-import {useEffect} from "react";
 
 const increment = createEvent();
 const increment2 = createEvent();
 const reset = createEvent();
 let value = JSON.parse(localStorage.getItem('counter'));
-console.log(typeof value)
 export const $counter = createStore(value)
     .on(increment, state => state + 1).on(reset, (state, d) => d = 0);
 export const $counter2 = createStore(0)

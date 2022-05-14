@@ -36,10 +36,10 @@ export const MyInput = () => {
     };
     return (
         <div>
-            <input type='number' value={state} onChange={(e) => onChange(e.target.value)}/>
+            <input type='number' value={state} onChange={(e) => onChange(e.target.valueAsNumber)}/>
             <button onClick={onClick}>set counter</button>
             <br/>
-            <input type="number" value={state2} onChange={(e) => onChange2(e.target.value)}/>
+            <input type="number" value={state2} onChange={(e) => onChange2(e.target.valueAsNumber)}/>
 
         </div>
     )
