@@ -1,8 +1,8 @@
 import './App.css';
 import {createEvent, createStore} from "effector";
 import {useStore} from "effector-react";
-import {Counter, Counter2} from "./Counter";
-import {MyInput} from "./MyInput";
+import {Counter, Counter2} from "./componentsForCounter/Counter";
+import {MyInput} from "./componentsForCounter/MyInput";
 
 const onChange = createEvent();
 const onSubmit = createEvent();
