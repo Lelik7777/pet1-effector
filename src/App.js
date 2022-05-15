@@ -1,24 +1,41 @@
 import './App.css';
-import {createEvent, createStore} from "effector";
-import {useStore} from "effector-react";
 import {Counter, Counter2} from "./componentsForCounter/Counter";
 import {MyInput} from "./componentsForCounter/MyInput";
+import {Submit} from "./Submit";
+import {createEffect, createEvent, createStore} from "effector";
+import {useStore} from "effector-react";
+import {Effect} from "./Effect";
 
-const onChange = createEvent();
-const onSubmit = createEvent();
-const $input = createStore('hello').on(onChange, (state, value) => value)
-const $store = createStore([]).on(onSubmit, (state, value) => state.push(value));
 
+
+
+
+const switchBut = createEvent();
+const $isTrue = createStore(true).on(switchBut, (state) => !state)
+const styleForBlock={
+    marginTop:'20px'
+}
 function App() {
-    const input = useStore($input)
-    // $store.watch(x=>console.log(x));
-    console.log($input)
+    const isTrue = useStore($isTrue);
+
     return (
         <div className="App">
             <div className='container'>
-                <MyInput/>
-                <Counter/>
-                <Counter2/>
+                <button onClick={switchBut}>{isTrue ? 'to form' : 'to counter'}</button>
+                {
+                    isTrue
+                        ? <div style={styleForBlock}>
+                            <MyInput/>
+                            <Counter/>
+                            <Counter2/>
+                        </div>
+                        :
+                        <div style={styleForBlock}>
+                            <Submit/>
+                            <Effect/>
+                        </div>
+                }
+
             </div>
         </div>
     );

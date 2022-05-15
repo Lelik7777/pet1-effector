@@ -15,13 +15,18 @@ sample({
     fn: (counter) => localStorage.setItem('counter', JSON.stringify(counter)),
     target: $counter
 })
+const styleForSpan={
+    color:'red',
+    fontSize:'1.2rem',
+    marginRight:'10px'
+}
 
 export const Counter = () => {
     const state = useStore($counter);
 
 
     return (<div>
-        Counter: {state}
+        Counter: <span style={styleForSpan}>{state}</span>
         <button onClick={increment}>+</button>
         <button onClick={reset}>reset</button>
     </div>)
@@ -29,7 +34,7 @@ export const Counter = () => {
 
 export const Counter2 = createComponent($counter2, (props, state) => (
     <div>
-        Counter2: {state}
+        Counter2: <span style={styleForSpan}>{state}</span>
         <button onClick={increment2} disabled={state > 4}>+</button>
     </div>
 ))
