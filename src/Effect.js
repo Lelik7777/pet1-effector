@@ -1,7 +1,7 @@
-import {createEffect, createEvent, createStore, sample} from "effector";
+import {createEffect, createEvent, createStore} from "effector";
 import {useStore} from "effector-react";
-import {useEffect} from "react";
 import axios from "axios";
+
 
 const sendReqFx = createEffect(async ({title}) => {
 
@@ -21,9 +21,8 @@ const $input = createStore('').on(onChange, (state, string) => string).reset(cle
 export const Effect = () => {
     const value = useStore($input);
     const data = useStore($store);
-    console.log(data)
     let onChangeInput = (e) => onChange(e.target.value);
-    return (<div>
+    return (<div style={{marginTop:'20px'}}>
         <input type="text" placeholder='search film' value={value} onChange={onChangeInput}/>
         <button onClick={() => sendReqFx({title: value})}>find</button>
         <button onClick={clearStore}>reset</button>

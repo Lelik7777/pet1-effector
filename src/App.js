@@ -2,12 +2,9 @@ import './App.css';
 import {Counter, Counter2} from "./componentsForCounter/Counter";
 import {MyInput} from "./componentsForCounter/MyInput";
 import {Submit} from "./Submit";
-import {createEffect, createEvent, createStore} from "effector";
+import {createEvent, createStore} from "effector";
 import {useStore} from "effector-react";
 import {Effect} from "./Effect";
-
-
-
 
 
 const switchBut = createEvent();
