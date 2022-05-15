@@ -1,10 +1,11 @@
 import './App.css';
 import {Counter, Counter2} from "./componentsForCounter/Counter";
 import {MyInput} from "./componentsForCounter/MyInput";
-import {Submit} from "./Submit";
+import {Submit} from "./componentsForForm/Submit";
 import {createEvent, createStore} from "effector";
 import {useStore} from "effector-react";
-import {Effect} from "./Effect";
+import {Effect} from "./componentsForForm/Effect";
+import {Preloader} from "./componentsForForm/Preloader";
 
 
 const switchBut = createEvent();
@@ -19,6 +20,7 @@ function App() {
         <div className="App">
             <div className='container'>
                 <button onClick={switchBut}>{isTrue ? 'to form' : 'to counter'}</button>
+
                 {
                     isTrue
                         ? <div style={styleForBlock}>
