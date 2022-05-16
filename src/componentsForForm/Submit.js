@@ -2,7 +2,7 @@ import {createEffect, createEvent, createStore} from "effector";
 import axios from "axios";
 import {useStore} from "effector-react";
 import {Preloader} from "./Preloader";
-
+// login to
  export const loginFx = createEffect(async ({email, password}) => {
     const instance = axios.create({
         baseURL: `https://social-network.samuraijs.com/api/1.0`,
