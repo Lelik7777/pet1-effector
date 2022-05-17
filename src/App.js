@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import {Counter, Counter2} from "./componentsForCounter/Counter";
+import {MyInput} from "./componentsForCounter/MyInput";
+import {Submit} from "./componentsForForm/Submit";
+import {createEvent, createStore} from "effector";
+import {useStore} from "effector-react";
+import {Effect} from "./componentsForForm/Effect";
+import {Preloader} from "./componentsForForm/Preloader";
 
+
+const switchBut = createEvent();
+const $isTrue = createStore(true).on(switchBut, (state) => !state)
+const styleForBlock={
+    marginTop:'20px'
+}
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const isTrue = useStore($isTrue);
+
+    return (
+        <div className="App">
+            <div className='container'>
+                <button onClick={switchBut}>{isTrue ? 'to form' : 'to counter'}</button>
+
+                {
+                    isTrue
+                        ? <div style={styleForBlock}>
+                            <MyInput/>
+                            <Counter/>
+                            <Counter2/>
+                        </div>
+                        :
+                        <div style={styleForBlock}>
+                            <Submit/>
+                            <Effect/>
+                        </div>
+                }
+
+            </div>
+        </div>
+    );
 }
 
 export default App;
